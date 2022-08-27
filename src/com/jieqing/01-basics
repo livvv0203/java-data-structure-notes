@@ -1,0 +1,72 @@
+Git initial setup:
+git remote add origin https://github.com/livvv0203/java-data-structure-notes.git
+
+1. Variable Declaration
+byte myAge = 10;
+int viewCounts = Integer.MAX_VALUE;
+float price = 10.99F;
+char letter = 'A';
+boolean isEligible = true;
+
+2. Reference Type
+Date date = new Date();
+System.out.println(date.getTime());
+
+// point1 and point2 are referencing the same point object
+Point point1 = new Point(1,1);
+Point point2 = point1;
+
+String message = "Hi"; // Reference type, just a short way to create
+
+3. Arrays
+int[] numbers = new int[5]; // old way
+int[] numbers2 = {1, 2, 127, 8, 5};
+Arrays.sort(numbers2); // sort the array
+System.out.println(numbers.length);
+System.out.println(Arrays.toString(numbers2)); // Print array to console: [1, 2, 127, 8, 5]
+
+4. Muti-dimensional Arrays
+int[][] numbers = new int[2][3];
+// OR
+int[][] numbers2 = {{1,2,3}, {3,4,5}}
+numbers[0][0] = 1;
+// Use this to print multidimensional arrays
+System.out.println(Arrays.deepToString(numbers));
+
+5. Constant
+final float PI = 3.14F;
+
+6. Operator
+double result = (double)10 / (double)3;
+
+7. Casting
+String x = "1";
+int y = Integer.parseInt(x);
+
+9. Math Class
+System.out.println(Math.round(1.3)); // 1
+System.out.println(Math.ceil(1.1)); // 2.0
+System.out.println(Math.floor(1.8)); // 1.0
+Math.random(); // 0 - 1
+Math.random() * 100;
+int result = (int)(Math.random() * 100); // 0 - 99
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
