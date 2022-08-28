@@ -9,6 +9,13 @@ TextBox textBox1 = new TextBox(); // Referencing the address on heap
 
 4. Programming against interfaces
 
+5. Big O - O(n)
+Performance of an algorithm
+
+6. Vector: 100% Array: 50%
+
+
+
 
 
 
