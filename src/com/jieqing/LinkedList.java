@@ -130,6 +130,29 @@ public class LinkedList {
     private boolean isEmpty() {
         return first == null;
     }
+
+    /**
+     * Reverse the Linked List
+     */
+    public void reverse() {
+        if (isEmpty())
+            return;
+        // [10 -> 20 -> 30]
+        // prev current next
+        // [10 <- 20 <- 30]
+        Node previous = first;
+        Node current = first.next;
+
+        while(current != null) {
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        last = first;
+        last.next = null;
+        first = previous;
+    }
 }
 
 

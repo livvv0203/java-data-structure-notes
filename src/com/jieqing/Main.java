@@ -10,8 +10,9 @@ public class Main {
         list.addLast(20);
         list.addLast(30);
         list.addFirst(10);
-
+        list.reverse();
         int[] array = list.toArray();
+
         System.out.println(Arrays.toString(array));
 
     }
