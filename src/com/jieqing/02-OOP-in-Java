@@ -1,4 +1,17 @@
-1.
+1. Create an Object
+TextBox textBox1 = new TextBox(); // Referencing the address on heap
+
+2. Static
+- Instance members
+- Static/Class members
+
+3. Upcasting and Down casting
+
+4. Programming against interfaces
+
+
+
+
 
 
 

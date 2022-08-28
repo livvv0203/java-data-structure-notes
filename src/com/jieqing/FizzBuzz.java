@@ -2,6 +2,7 @@ package com.jieqing;
 import java.util.Scanner;
 
 public class FizzBuzz {
+
     FizzBuzz() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a Number: ");
@@ -16,7 +17,11 @@ public class FizzBuzz {
         else
             System.out.println("[" + number + "]" + " is not divisible by either 3 or 5.");
     }
+
 }
+
+
+
 
 
 
