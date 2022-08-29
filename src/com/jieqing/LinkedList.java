@@ -1,5 +1,7 @@
 package com.jieqing;
 
+import sun.awt.util.IdentityLinkedList;
+
 import java.util.NoSuchElementException;
 
 public class LinkedList {
@@ -152,6 +154,30 @@ public class LinkedList {
         last = first;
         last.next = null;
         first = previous;
+    }
+
+    /**
+     * Find kth Node from the end of the linked list in one pass
+     */
+    public int getKthFromTheEnd(int k) {
+
+        if (isEmpty())
+            throw new IllegalStateException();
+
+        // Needs two pointers
+        Node p1 = first;
+        Node p2 = first;
+        for (int i = 0; i < k - 1; i++) {
+            p2 = p2.next; // moving the second pointer forward by k - 1 distance
+            if (p2 == null)
+                throw new IllegalArgumentException(); // k is too large
+        }
+        while(p2 != last) {
+            // Move both of the two pointers forward
+            p1 = p1.next;
+            p2 = p2.next; // until p2 is referencing the last node
+        }
+        return p1.value;
     }
 }
 
