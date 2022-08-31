@@ -1,29 +1,22 @@
 package com.jieqing;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Set<Integer> set = new HashSet<>();
-        int[] numbers = {1, 2, 3, 3, 2, 1, 4};
+        Tree tree = new Tree();
+        tree.insert(12);
+        tree.insert(10);
+        tree.insert(5);
+        tree.insert(8);
+        tree.insert(7);
+        tree.insert(4);
+        tree.insert(1);
 
-        for (int number : numbers) {
-            set.add(number);
-        }
+        tree.traversePreOrder();
 
-        System.out.println(set);
 
     }
-
-
-
-
-
-
 
 }
 
