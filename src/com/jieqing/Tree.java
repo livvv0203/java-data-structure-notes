@@ -10,6 +10,7 @@ public class Tree {
         public Node(int value) {
             this.value = value;
         }
+
         @Override
         public String toString() {
             return "Node = " + value;
@@ -29,7 +30,7 @@ public class Tree {
 
         Node current = root;
         // Traverse the tree
-        while(true) {
+        while (true) {
             if (value < current.value) {
                 if (current.leftChild == null) {
                     current.leftChild = node;
@@ -37,8 +38,7 @@ public class Tree {
                 }
                 // go to left subtree
                 current = current.leftChild;
-            }
-            else {
+            } else {
                 if (current.rightChild == null) {
                     // found parent of new node
                     current.rightChild = node;
@@ -53,7 +53,7 @@ public class Tree {
     public boolean find(int value) {
         Node current = root;
         // Traverse the tree
-        while(current != null) {
+        while (current != null) {
             if (value < current.value)
                 current = current.leftChild;
             else if (value > current.value)
@@ -70,6 +70,7 @@ public class Tree {
 
     /**
      * Root -> Left -> Right
+     *
      * @param root
      */
     private void traversePreOrder(Node root) {
@@ -90,6 +91,7 @@ public class Tree {
 
     /**
      * Left -> Root -> Right
+     *
      * @param root
      */
     private void traverseInOrder(Node root) {
@@ -107,6 +109,7 @@ public class Tree {
 
     /**
      * Left -> Right -> Root
+     *
      * @param root
      */
     private void traversePostOrder(Node root) {
@@ -117,7 +120,87 @@ public class Tree {
         traversePostOrder(root.rightChild);
         System.out.println(root.value);
     }
+
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node root) {
+        // empty tree
+        if (root == null)
+            return -1;
+        // reach a leaf node
+        if (isLeaf(root))
+            return 0;
+
+        return 1 + Math.max(height(root.leftChild), height(root.rightChild));
+    }
+
+    public int min() {
+        return min(root);
+    }
+
+    // Find minimum value in a binary tree O(n)
+    private int min(Node root) {
+        // Base Condition - get to the leaf node
+        if (isLeaf(root))
+            return root.value; // exit recursion
+
+        int left = min(root.leftChild);
+        int right = min(root.rightChild);
+
+        return Math.min(Math.min(left, right), root.value);
+    }
+
+    private boolean isLeaf(Node root) {
+        return root.leftChild == null & root.rightChild == null;
+    }
+
+    // Find minimum value in a binary search tree - O(Log n)
+    public int minimum() {
+        if (root == null)
+            throw new IllegalStateException();
+
+        Node current = root;
+        Node last = current;
+        while (current != null) {
+            last = current;
+            current = current.leftChild;
+        }
+        return last.value;
+    }
+
+    public boolean equals(Tree other) {
+        return equals(root, other.root);
+    }
+
+    private boolean equals(Node first, Node second) {
+        if (first == null && second == null) return true;
+
+        // PreOrder Traversal
+        if (first != null && second != null) {
+            return first.value == second.value
+                    && equals(first.leftChild, second.leftChild)
+                    && equals(first.rightChild, second.rightChild);
+        }
+        return false;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
