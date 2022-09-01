@@ -1,4 +1,5 @@
 package com.jieqing;
+import java.util.ArrayList;
 
 public class Tree {
 
@@ -171,6 +172,9 @@ public class Tree {
     }
 
     public boolean equals(Tree other) {
+        if (other == null)
+            return false;
+
         return equals(root, other.root);
     }
 
@@ -185,7 +189,66 @@ public class Tree {
         }
         return false;
     }
+
+    public boolean isBinarySearchTree() {
+        return isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    // Testing purpose - messing up the order of the binary search tree
+    public void swapRoot() {
+        Node temp = root.leftChild;
+        root.leftChild = root.rightChild;
+        root.rightChild = temp;
+    }
+
+    private boolean isBinarySearchTree(Node root, int min, int max) {
+        if (root == null) {
+            return true;
+        }
+        // out of range
+        if (root.value < min || root.value > max)
+            return false;
+
+        // If root is 20, right child should be 21 or greater, left child should be 19 or less
+        return isBinarySearchTree(root.leftChild, min, root.value - 1)
+                && isBinarySearchTree(root.rightChild, root.value + 1, max);
+    }
+
+    public ArrayList<Integer> getNodesAtDistance(int distance) {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        getNodesAtDistance(root, distance, list);
+        return list;
+    }
+
+    private void getNodesAtDistance(Node root, int distance, ArrayList<Integer> list) {
+        if (root == null)
+            return; // do nothing
+
+        if (distance == 0) {
+            list.add(root.value);
+            return;
+        }
+        // Recursively traverse the tree
+        getNodesAtDistance(root.leftChild, distance - 1, list);
+        getNodesAtDistance(root.rightChild, distance - 1, list);
+    }
+
+    public void traverseLevelOrder() {
+        for (int i = 0; i <= height(); i++) {
+            for (int value : getNodesAtDistance(i)) {
+                System.out.println(value);
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
 
 
 
