@@ -36,11 +36,12 @@ public class ArrayQueue {
      * Circular Array
      * [0, 0, 30, 40, 50]
      * [60, 70, 30, 40, 50]
-     *   5  R(6)
+     * 5  R(6)
      * Rear -> 5 -> 0
      * 6 -> 1
      * 7 -> 2
      * (rear + 1) % length
+     *
      * @return
      */
 
@@ -48,15 +49,6 @@ public class ArrayQueue {
     public String toString() {
         return Arrays.toString(items);
     }
-
-
-
-
-
-
-
-
-
 
 }
 
